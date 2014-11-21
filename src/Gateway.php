@@ -21,18 +21,30 @@ class Gateway extends AbstractGateway
     public function getDefaultParameters()
     {
         return array(
-            'apiKey' => '',
+            'liveApiKey' => '',
+            'testApiKey' => '',
+            'testMode' => false,
         );
     }
 
-    public function getApiKey()
+    public function getLiveApiKey()
     {
-        return $this->getParameter('apiKey');
+        return $this->getParameter('liveApiKey');
     }
 
-    public function setApiKey($value)
+    public function setLiveApiKey($value)
     {
-        return $this->setParameter('apiKey', $value);
+        return $this->setParameter('liveApiKey', $value);
+    }
+
+    public function getTestApiKey()
+    {
+        return $this->getParameter('testApiKey');
+    }
+
+    public function setTestApiKey($value)
+    {
+        return $this->setParameter('testApiKey', $value);
     }
 
     /**
