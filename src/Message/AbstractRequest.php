@@ -11,30 +11,24 @@ abstract class AbstractRequest extends \Omnipay\Common\Message\AbstractRequest
 {
     protected $endpoint = 'https://api.stripe.com/v1';
 
-    public function getApiKey()
+    public function getLiveApiKey()
     {
-        return $this->getParameter('apiKey');
+        return $this->getParameter('liveApiKey');
     }
 
-    public function setApiKey($value)
+    public function setLiveApiKey($value)
     {
-        return $this->setParameter('apiKey', $value);
+        return $this->setParameter('liveApiKey', $value);
     }
 
-    /**
-     * @deprecated
-     */
-    public function getCardToken()
+    public function getTestApiKey()
     {
-        return $this->getParameter('token');
+        return $this->getParameter('testApiKey');
     }
 
-    /**
-     * @deprecated
-     */
-    public function setCardToken($value)
+    public function setTestApiKey($value)
     {
-        return $this->setParameter('token', $value);
+        return $this->setParameter('testApiKey', $value);
     }
 
     public function getMetadata()
