@@ -23,6 +23,13 @@ class Response extends AbstractResponse
 
     public function getCardReference()
     {
+        if (isset($this->data['object']) && ('card' === $this->data['object'] || 'customer' === $this->data['object']) ) {
+            return $this->data['id'];
+        }
+    }
+
+    public function getCustomerReference()
+    {
         if (isset($this->data['object']) && 'customer' === $this->data['object']) {
             return $this->data['id'];
         }
