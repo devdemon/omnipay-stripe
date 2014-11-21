@@ -27,6 +27,10 @@ class CreateCardRequest extends AbstractRequest
 
     public function getEndpoint()
     {
-        return $this->endpoint.'/customers';
+        if ($this->getCustomerReference()) {
+            return $this->endpoint.'/customers/' . $this->getCustomerReference() . '/cards';
+        } else {
+            return $this->endpoint.'/customers';
+        }
     }
 }
