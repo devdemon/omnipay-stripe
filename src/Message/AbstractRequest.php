@@ -70,6 +70,9 @@ abstract class AbstractRequest extends \Omnipay\Common\Message\AbstractRequest
 
     public function sendData($data)
     {
+        // Get correct API Key
+        $apikey = ($this->getTestMode()) ? $this->getTestApiKey() : $this->getLiveApiKey();
+
         // don't throw exceptions for 4xx errors
         $this->httpClient->getEventDispatcher()->addListener(
             'request.error',
