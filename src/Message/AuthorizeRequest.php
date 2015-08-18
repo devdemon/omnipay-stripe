@@ -7,6 +7,17 @@ namespace Omnipay\Stripe\Message;
  */
 class AuthorizeRequest extends AbstractRequest
 {
+
+    public function getStatementDescriptor()
+    {
+        return $this->getParameter('statementDescriptor');
+    }
+
+    public function setStatementDescriptor($value)
+    {
+        return $this->setParameter('statementDescriptor', $value);
+    }
+
     public function getData()
     {
         $this->validate('amount', 'currency');
@@ -17,6 +28,10 @@ class AuthorizeRequest extends AbstractRequest
         $data['description'] = $this->getDescription();
         $data['metadata'] = $this->getMetadata();
         $data['capture'] = 'false';
+
+        if ($this->getStatementDescriptor()) {
+            $data['statement_descriptor'] = $this->getStatementDescriptor();
+        }
 
         if ($this->getCustomerReference() && $this->getCardReference()) {
             $data['customer'] = $this->getCustomerReference();
