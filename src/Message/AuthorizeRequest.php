@@ -18,7 +18,11 @@ class AuthorizeRequest extends AbstractRequest
         $data['metadata'] = $this->getMetadata();
         $data['capture'] = 'false';
 
-        if ($this->getCardReference()) {
+        if ($this->getCustomerReference() && $this->getCardReference()) {
+            $data['customer'] = $this->getCustomerReference();
+            $data['card'] = $this->getCardReference();
+        }
+        elseif ($this->getCardReference()) {
             $data['customer'] = $this->getCardReference();
         } elseif ($this->getToken()) {
             $data['card'] = $this->getToken();

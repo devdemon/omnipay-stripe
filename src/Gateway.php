@@ -3,8 +3,6 @@
 namespace Omnipay\Stripe;
 
 use Omnipay\Common\AbstractGateway;
-use Omnipay\Stripe\Message\PurchaseRequest;
-use Omnipay\Stripe\Message\RefundRequest;
 
 /**
  * Stripe Gateway

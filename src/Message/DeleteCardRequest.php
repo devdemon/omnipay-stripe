@@ -9,7 +9,7 @@ class DeleteCardRequest extends AbstractRequest
 {
     public function getData()
     {
-        $this->validate('cardReference');
+        $this->validate('customerReference');
 
         return null;
     }
@@ -21,6 +21,6 @@ class DeleteCardRequest extends AbstractRequest
 
     public function getEndpoint()
     {
-        return $this->endpoint.'/customers/'.$this->getCardReference();
+        return $this->endpoint.'/customers/'.$this->getCustomerReference();
     }
 }
